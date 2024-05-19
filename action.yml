@@ -7,6 +7,9 @@ inputs:
   PUSHED_GITHUB_SHA:  # id of input
     description: 'Github sha commit'
     required: true    
+  GITHUB_BRANCH:
+    description: "Github branch"
+    required: true
 runs:
   using: 'node20'
   main: 'index.js'

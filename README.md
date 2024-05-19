@@ -1,1 +1,1 @@
-# my-cc-g-action
+# my-code-coverage-g-action

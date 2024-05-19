@@ -34,7 +34,7 @@ async function run() {
     await octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: pull_request.number,
-        body: 'Te current code coverage is: 80% | [Coverage has not changed | Coverage has decreased by 1% | Coverage has increased by 1%]'
+        body: `The current code coverage is: ${data.previous} - Your coverage is: ${data.current} | [${data.message_diff}]`
     });
 }   
 

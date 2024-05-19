@@ -4,6 +4,9 @@ inputs:
   GITHUB_TOKEN:  # id of input
     description: 'Github token'
     required: true
+  PUSHED_GITHUB_SHA:  # id of input
+    description: 'Github sha commit'
+    required: true    
 runs:
   using: 'node20'
   main: 'index.js'

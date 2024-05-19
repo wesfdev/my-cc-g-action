@@ -3,9 +3,11 @@ const github = require('@actions/github');
 
 async function run() {
     const GITHUB_TOKEN = core.getInput('GITHUB_TOKEN');
+    const PUSHED_GITHUB_SHA = core.getInput('PUSHED_GITHUB_SHA');
     const octokit = github.getOctokit(GITHUB_TOKEN);
     const { context = {} } = github;
     const { pull_request } = context.payload;
+    console.log('PUSHED_GITHUB_SHA', PUSHED_GITHUB_SHA);
 
     await octokit.rest.issues.createComment({
         ...context.repo,

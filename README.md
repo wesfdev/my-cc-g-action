@@ -1,4 +1,4 @@
-# My Code Coverga Gihub Action
+# My Code Coverage Gihub Action
 # Hello world javascript action
 
 This action prints "Hello World" or "Hello" + the name of a person to greet to the log.

@@ -30,12 +30,10 @@ async function run() {
     })
 
     console.log('data', data);
-    console.log('context', context);
     //TODO: Adjuntar la url donde pueden verlo
     await octokit.rest.issues.createComment({
         ...context.repo,
-        //issue_number: pull_request.number,
-        issue_number: context.issue.number,
+        issue_number: pull_request.number,
         body: `The current code coverage is: **${data.previous}** \nYour coverage is: **${data.current}** \n**${data.message_diff}**`
     });
 }   

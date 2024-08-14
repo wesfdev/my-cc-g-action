@@ -34,7 +34,7 @@ async function run() {
     //TODO: Adjuntar la url donde pueden verlo
     const body = 
         `The current code coverage is: **${data.previous}** \nYour coverage is: **${data.current}** \n**${data.message_diff}**\n\n` +
-        `You can check the coverage [code coverage details](${COVERALLS_URL}/builds/${data.build}) for more details.`;
+        `You can check the coverage [here](${COVERALLS_URL}/builds/${data.build}) for more details.`;
     await octokit.rest.issues.createComment({
         ...context.repo,
         issue_number: PR_NUMBER,

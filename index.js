@@ -8,10 +8,11 @@ async function run() {
     const GITHUB_BRANCH = core.getInput('GITHUB_BRANCH');
     const COVERALLS_REPO_TOKEN = core.getInput('COVERALLS_REPO_TOKEN');
     const COVERALLS_URL = core.getInput('COVERALLS_URL');
+    const PR_NUMBER = core.getInput('PR_NUMBER');
 
     const octokit = github.getOctokit(GITHUB_TOKEN);
     const { context = {} } = github;
-    const { pull_request } = context.payload;
+    //const { pull_request } = context.payload;
 
     console.log('PUSHED_GITHUB_SHA', PUSHED_GITHUB_SHA);
     console.log('GITHUB_BRANCH', GITHUB_BRANCH);
@@ -33,7 +34,7 @@ async function run() {
     //TODO: Adjuntar la url donde pueden verlo
     await octokit.rest.issues.createComment({
         ...context.repo,
-        issue_number: pull_request.number,
+        issue_number: PR_NUMBER,
         body: `The current code coverage is: **${data.previous}** \nYour coverage is: **${data.current}** \n**${data.message_diff}**`
     });
 }   

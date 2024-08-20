@@ -24,7 +24,7 @@ async function run() {
             "id": PUSHED_GITHUB_SHA
         }
     }
-    const {data} = await axios.post(`${COVERALLS_URL}/api/v1/coverage-diff`, requestBody, {
+    const {data} = await axios.post(`${COVERALLS_URL}/auth/api/v1/coverage-diff`, requestBody, {
         headers: {
           'Content-Type': 'application/json'
         }

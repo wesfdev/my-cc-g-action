@@ -19,6 +19,9 @@ inputs:
   PR_NUMBER:
     description: "PR number"
     required: true
+  COVERAGE_PLATFORM_TOKEN:
+    description: "Coverage platform token"
+    required: true
 runs:
   using: 'node20'
   main: 'index.js'

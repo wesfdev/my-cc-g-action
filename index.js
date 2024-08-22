@@ -9,6 +9,7 @@ async function run() {
     const COVERALLS_REPO_TOKEN = core.getInput('COVERALLS_REPO_TOKEN');
     const COVERALLS_URL = core.getInput('COVERALLS_URL');
     const PR_NUMBER = core.getInput('PR_NUMBER');
+    const coveragePlatformToken = core.getInput('COVERAGE_PLATFORM_TOKEN');
 
     const octokit = github.getOctokit(GITHUB_TOKEN);
     const { context = {} } = github;
@@ -26,7 +27,8 @@ async function run() {
     }
     const {data} = await axios.post(`${COVERALLS_URL}/auth/api/v1/coverage-diff`, requestBody, {
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${coveragePlatformToken}`
         }
     })
 
